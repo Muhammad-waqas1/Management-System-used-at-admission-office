@@ -1,19 +1,7 @@
-#  In this project, you have to create Management System used by admission office of the university. This software is used by office to enter info about new students as well as used by teachers to enter marks of the students for a given exam and course. The program has features like ::::>>>>>>>>
-#   Add Student
-#   Show list Student
-#   Edit Student Information
-#   Delete Student
-#   Register student in a course
-#   Enter marks of the student or complete class
-#   Print Grades of students
-
-# student ==> rollnumber,name,course,marks(Grades)
-
 import mysql.connector
 import pandas as pd
 
 cursor=None
-# conn=None
 try:
     conn = mysql.connector.connect(host='localhost', user='root', password='waqasbruh404')
     if conn.is_connected():
@@ -46,12 +34,7 @@ CREATE TABLE IF NOT EXISTS Student_Info (
 
     def adding_to_excel(rows):
         if rows:
-            # for row in rows:
-            #     print(row)
-
-            # Convert the result to a pandas DataFrame
             df = pd.DataFrame(rows, columns=column_headers)
-
             # Save the DataFrame to an Excel file
             Python_For_Data = "student_data.xlsx"
             df.to_excel(Python_For_Data, index=False)
@@ -158,8 +141,6 @@ CREATE TABLE IF NOT EXISTS Student_Info (
             print("Invalid choice. Please enter a number between 1 and 8: ")
             choice=int(input("Enter Choice(letter): "))
         
-
-
 except mysql.connector.Error as err:
     print(f"Error: {err}")
 
